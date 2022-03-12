@@ -10,6 +10,8 @@
 <script src="fontAwesome/js/all.js">
      //FontAwesome
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script>
+
 
 <hr>
 <footer class="text-center text-white" style="background-color: #f1f1f1;">

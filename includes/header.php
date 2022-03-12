@@ -9,6 +9,7 @@
      <link rel="stylesheet" href="fontAwesome/all.css">
 <!-- Importacion de librerías necesarias para los diseños con Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
      <title>Página principal</title>
 
 </head>
