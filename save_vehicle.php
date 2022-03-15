@@ -82,6 +82,11 @@ if (isset($_POST['save_vehicle'])) {
           }
      }
 
+
+
+     #region Funciones para validar los mensajes por sesion
+
+     #region Mensaje para mostrar cuando la tarea concluye de manera correcta
      function exitoso()
      {
           // Mensaje a enviar por la sesion y que se muestre cuando se crea un registro
@@ -90,7 +95,9 @@ if (isset($_POST['save_vehicle'])) {
           $_SESSION['message_type'] = 'success';
          
      }
+     #endregion
 
+     #region Mensaje para mostrar cuando haya un error con la tarea
      function error()
      {
           // Mensaje a enviar por la sesion y que se muestre cuando se crea un registro
@@ -98,10 +105,20 @@ if (isset($_POST['save_vehicle'])) {
           // Tipo de mensaje a enviar cuando se realiza el registro
           $_SESSION['message_type'] = 'danger';
      }
+     #endregion
 
+     #endregion
+
+
+     #region Valido que los datos recibidos en las variables no sean vacíos
      if ($_code == "" || $_color == "" || $_type == ""|| $_model == ""|| $_license_plate == ""|| $_num_passengers == ""|| $_fuel_type == "" ) {
           error();
      }
+
+     #endregion
+
+     #region Consulta a MySQL con el insert
+
      // Ejectuco la consulta de mysql con los datos recibidos por el post
      $query = "INSERT INTO vehicles(code,type,model,license_plate,color,num_passengers,photo,fuel_type) values ('$_code','$_type','$_model','$_license_plate','$_color','$_num_passengers','$rutaImg','$fuel_type_Mayus')";
      $result = mysqli_query($conn, $query);
@@ -118,6 +135,10 @@ if (isset($_POST['save_vehicle'])) {
 			</script>';
           die("No se realizó el registro");
      }
+
+     #endregion
+
+     
 
 
 }
