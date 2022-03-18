@@ -87,7 +87,6 @@ date_default_timezone_set('America/Bogota');
 
                               <thead>
                                    <tr>
-                                        <th>Code</th>
                                         <th>Tipo de vehiculo</th>
                                         <th>Modelo</th>
                                         <th>Placa</th>
@@ -114,7 +113,6 @@ date_default_timezone_set('America/Bogota');
                que necesite, esta columna es la de la base de datos -->
                                              <!-- Cuando ya he realizado eso, entonces lo dibujo como un td=table data/ dato de una tabla o más bien
           por una fila dentro de una tabla. Por cada objeto o dato que encuentre, me va a dibujar una fila  -->
-                                             <td><?php echo $row['code'];  ?> </td>
                                              <td><?php echo $row['type'];  ?> </td>
                                              <td><?php echo $row['model'];  ?> </td>
                                              <td><?php echo $row['license_plate'];  ?> </td>
@@ -177,9 +175,6 @@ date_default_timezone_set('America/Bogota');
                          <div class="box-body">
 
                               <!-- el form-group es una forma de agrupar los campos de un formulario -->
-                              <div class="form-group">
-                                   <input type="text" name="code" class="form-control" placeholder="Code" required>
-                              </div>
                               <div class="form-group">
                                    <!-- Lista desplegable con los tipos de vehiculos seleccioandos -->
                                    <label for="vehicles">Seleccionar el tipo de vehículo:</label>

@@ -8,7 +8,6 @@ if (isset($_POST['save_vehicle'])) {
 
      // Recibo el valor de cada objeto con su respectivo name y lo guardo en una variable. 
      // El name es una propiedad que se le asigna a una etiqueta del input
-     $_code = $_POST['code'];
      $_type = $_POST['type'];
      $_model = $_POST['model'];
      $_license_plate = $_POST['license_plate'];
@@ -120,7 +119,7 @@ if (isset($_POST['save_vehicle'])) {
      #region Consulta a MySQL con el insert
 
      // Ejectuco la consulta de mysql con los datos recibidos por el post
-     $query = "INSERT INTO vehicles(code,type,model,license_plate,color,num_passengers,photo,fuel_type) values ('$_code','$_type','$_model','$_license_plate','$_color','$_num_passengers','$rutaImg','$fuel_type_Mayus')";
+     $query = "INSERT INTO vehicles(type,model,license_plate,color,num_passengers,photo,fuel_type) values ('$_type','$_model','$_license_plate','$_color','$_num_passengers','$rutaImg','$fuel_type_Mayus')";
      $result = mysqli_query($conn, $query);
 
      if ($result == true) {
