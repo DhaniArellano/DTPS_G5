@@ -1,5 +1,16 @@
-<!-- Incluyo el archivo con los datos de conexion, se hace una sola vez -->
+<!-- 
+     Vehiculo
+     Atributos
+     Code           -> Number, es un identificador interno autoincrementable
+     Type           -> Select, define el tipo de vehiculo (carro, autobus, moto,...)
+     Model          -> Text, almacena el modelo del vehiculo
+     License_plate  -> Texto, almacena la matricula del vehiculo
+     Color          -> Tipo Color, se refiere al color del vehiculo se guarda en HEX
+     Num_Passengers -> Number, se refiere al numero de asientos de un vehiculo
+     Fuel_type      -> Select, define el tipo de combustible que usa un vehiculo
+-->
 <?php
+//Traemos la conexion a la db
 include("db.php");
 $type = '';
 $model = '';
@@ -8,11 +19,12 @@ $color = '';
 $num_passengers = '';
 $fuel_type = '';
 
-
+//Verificamos que el contenido recibido por GET no sea nulo o vacio
 if (isset($_GET['code'])) {
      $code = $_GET['code'];
      $query = "SELECT * FROM vehicles WHERE code=$code";
      $result = mysqli_query($conn, $query);
+     //si existe lo asignamos a sus variables
      if (mysqli_num_rows($result) == 1) {
           $row = mysqli_fetch_array($result);
           $type = $row['type'];
@@ -23,8 +35,13 @@ if (isset($_GET['code'])) {
           $fuel_type = $row['fuel_type'];
      }
 }
-
+/* 
+     Funcion encargada de actualizar un vehiculo
+     Está encargada de escuchar por post si hubo algun evento button update
+     Verifica que no sea un dato nulo o vacio
+*/
 if (isset($_POST['update'])) {
+     //asignamos el contenido enviado por post en sus variables
      $code = $_GET['code'];
      $type = $_POST['type'];
      $model = $_POST['model'];
@@ -32,20 +49,27 @@ if (isset($_POST['update'])) {
      $color = $_POST['color'];
      $num_passengers = $_POST['num_passengers'];
      $fuel_type = $_POST['fuel_type'];
-
+     //realizamos un prepared statement para ser enviado al sgdb
      $query = "UPDATE vehicles SET type = '$type', model = '$model', license_plate = '$license_plate', color = '$color', num_passengers = '$num_passengers', fuel_type = '$fuel_type' WHERE code = $code";
      mysqli_query($conn, $query);
+     //dependieno de la salida actualizamos la session para mostrar estado en index
      $_SESSION['message'] = 'Vehicle Updated Successfully';
      $_SESSION['message_type'] = 'warning';
      header('Location: index.php');
 }
 ?>
+<!-- traemos el compomponente header -->
 <?php include("includes/header.php") ?>
 
+<!-- container -->
 <div class="container p-4">
      <div class="row">
           <div class="col-md-4 mx-auto">
                <div class="card card-body">
+                    <!--
+                    creamos un formulario que va a recibir los datos 
+                    y permitirá modificarlos para enviarlos por post 
+                    -->
                     <form action="edit_vehicle.php?code=<?php echo $_GET['code']; ?>" method="POST">
                          <div class="form-group">
                               <label for="code">Codigo</label>
@@ -105,4 +129,5 @@ if (isset($_POST['update'])) {
           </div>
      </div>
 </div>
+<!-- traemos el compomponente footer -->
 <?php include("includes/footer.php") ?>
