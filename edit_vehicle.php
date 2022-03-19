@@ -66,11 +66,11 @@ if (isset($_POST['update'])) {
                          </div>
                          <div class="form-group">
                               <label for="model">Modelo del vehiculo</label>
-                              <input name="model" type="text" class="form-control" value="<?php echo $model; ?>" placeholder="Update Model">
+                              <input name="model" type="text" class="form-control" value="<?php echo $model; ?>" placeholder="Update Model" required>
                          </div>
                          <div class="form-group">
                               <label for="license_plate">Placa del vehiculo</label>
-                              <input name="license_plate" type="text" class="form-control" value="<?php echo $license_plate; ?>" placeholder="Update Plate">
+                              <input name="license_plate" type="text" class="form-control" value="<?php echo $license_plate; ?>" placeholder="Update Plate" required>
                          </div>
                          <div class="form-group">
                               <label for="num_passengers">Color del vehiculo</label>
@@ -78,12 +78,12 @@ if (isset($_POST['update'])) {
                          </div>
                          <div class="form-group">
                               <label for="num_passengers">Numero de pasajeros</label>
-                              <input name="num_passengers" type="text" class="form-control" value="<?php echo $num_passengers; ?>" placeholder="Update passengers">
+                              <input name="num_passengers" type="number" class="form-control" value="<?php echo $num_passengers; ?>" placeholder="Update passengers" required>
                          </div>
                          <div class="form-group">
                               <label for="fuel_type">Tipo de Combustible</label>
                               <br>
-                              <select name="fuel_type" class="form-control" aria-label="Default select example">
+                              <select name="fuel_type" class="form-control" aria-label="Default select example" required>
                                    <option selected value="<?php echo $fuel_type;?>"><?php echo $fuel_type;?></option>
                                    <option value="gasolina">Gasolina</option>
                                    <option value="diesel">Diésel</option>
