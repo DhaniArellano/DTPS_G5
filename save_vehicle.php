@@ -110,7 +110,7 @@ if (isset($_POST['save_vehicle'])) {
 
 
      #region Valido que los datos recibidos en las variables no sean vacíos
-     if ($_code == "" || $_color == "" || $_type == ""|| $_model == ""|| $_license_plate == ""|| $_num_passengers == ""|| $_fuel_type == "" ) {
+     if ($_color == "" || $_type == ""|| $_model == ""|| $_license_plate == ""|| $_num_passengers == ""|| $_fuel_type == "" ) {
           error();
      }
 
