@@ -122,13 +122,14 @@ date_default_timezone_set('America/Bogota');
                                              <?php
                                              // Valido si en la consulta la columna photo tiene una url o no
                                              // Es decir, verifico que efectivamente haya una imagen en ese campo
+                                             
                                              if ($row['photo'] == "") {
                                                   // Si el resultado de la consulta no arroja un resultado con imagen, 
                                                   // entonces le dibujo una imagen por defecto a esa fila
                                                   echo '<td> <img src="http://localhost/DTPS_G5/img/defecto.png" class="img-responsive" width="40px"> </td>';
                                              } else {
-                                                  // Si por el contrario, encontró una imagen, entonces leo la url y la dibujo 
                                                   echo '<td> <img src="http://localhost/DTPS_G5/' . $row["photo"] . '" class="img-responsive" width="40px"> </td>';
+                                                  // Si por el contrario, encontró una imagen, entonces leo la url y la dibujo 
                                              }
                                              // Esta linea puede ser utilizada para hacer el edit del registro
                                              echo '<input type="hidden" name="imgActual" value="' . $row["photo"] . '">'
@@ -140,11 +141,6 @@ date_default_timezone_set('America/Bogota');
                                                   <a href="edit_vehicle.php?code=<?php echo $row['code']; ?>" class="btn btn-success">
                                                        <span class="glyphicon glyphicon-edit"></span>
                                                   </a>
-                                             
-                                             
-                                             
-
-
 
                                                   <!-- se captura el numero que identifica cada entrada para proceder a eliminarlo -->
                                               <form action="delete.php" method="post">
@@ -230,7 +226,7 @@ date_default_timezone_set('America/Bogota');
                               </div>
                               <div class="form-group">
                                    <label for="num_passengers">Número de pasajeros</label>
-                                   <input type="number" min="1" max="4" name="num_passengers" class="form-control" placeholder="Number of passengers" required>
+                                   <input type="number" min="1" name="num_passengers" class="form-control" placeholder="Number of passengers" required>
                               </div>
                               <div class="form-group">
                                    <label for="photo">Foto del vehículo</label>
