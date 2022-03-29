@@ -137,7 +137,7 @@ date_default_timezone_set('America/Bogota');
                                              <td><?php echo $row['fuel_type'];  ?> </td>
                                              <td>
                                                   <!-- Aqui se debe realizar los ajustes respectivos para que funcione el editar -->
-                                                  <a href="aqui_debe_ir_el_archivo_editar.php" class="btn btn-success">
+                                                  <a href="edit_vehicle.php?code=<?php echo $row['code']; ?>" class="btn btn-success">
                                                        <span class="glyphicon glyphicon-edit"></span>
                                                   </a>
                                                   <!-- Aqui se debe realizar los ajustes respectivos para que funcione el borrar -->
