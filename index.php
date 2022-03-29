@@ -116,7 +116,9 @@ date_default_timezone_set('America/Bogota');
                                              <td><?php echo $row['type'];  ?> </td>
                                              <td><?php echo $row['model'];  ?> </td>
                                              <td><?php echo $row['license_plate'];  ?> </td>
-                                             <td><?php echo $row['color'];  ?> </td>
+                                             <td>
+                                   <input type="color" name="color" class="input-lg" value="<?php echo $row['color']; ?>" disabled>
+                                             </td>
                                              <td><?php echo $row['num_passengers'];  ?> </td>
 
                                              <?php
@@ -243,10 +245,8 @@ date_default_timezone_set('America/Bogota');
                                         <option value="biodiesel">Biodiesel</option>
                                         <option value="electricidad">Electricidad</option>
                                         <option value="metanol">Metanol</option>
-                                        <option value="gas_natural">Gas Natural</option>
+                                        <option value="gas natural">Gas Natural</option>
                                         <option value="GLP">GLP</option>
-                                        <!-- <option value="bicycle">Bicicleta</option> -->
-                                        <option value="truck">Camion</option>
                                    </select>
                               </div>
                          </div>
@@ -254,7 +254,7 @@ date_default_timezone_set('America/Bogota');
                     </div>
                     <div class="modal-footer">
                          <input type="submit" class="btn btn-success" name="save_vehicle" value="Guardar">
-                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>  
                     </div>
                </form>
           </div>

@@ -14,7 +14,8 @@
 
 </head>
 
-<body>
+<body class="hold-transition skin-blue sidebar-mini login-page">
+
 
 <!-- Diseño de la barra de navegacion fluida, se adapta a todo tipo de pantalla -->
 
