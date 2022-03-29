@@ -20,4 +20,10 @@ CREATE TABLE `vehicles` (
   `fuel_type` text NOT NULL,
   PRIMARY KEY(code)
 ) ENGINE=InnoDB DEFAULT;
+ALTER TABLE `vehicles` CHANGE `model` `model` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `vehicles` CHANGE `license_plate` `license_plate` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `vehicles` CHANGE `color` `color` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `vehicles` CHANGE `num_passengers` `num_passengers` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `vehicles` CHANGE `photo` `photo` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `vehicles` CHANGE `fuel_type` `fuel_type` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 
