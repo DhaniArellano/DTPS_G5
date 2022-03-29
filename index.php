@@ -6,7 +6,7 @@
 
 <!-- zona horaria -->
 
-<?php 
+<?php
 // Se configura la zona horaria para mostrar la hora.
 date_default_timezone_set('America/Bogota');
 
@@ -26,7 +26,7 @@ date_default_timezone_set('America/Bogota');
 <div class="container">
 
      <section class="content">
-          
+
           <div class="card text-center">
                <div class="card-body">
                     <button class="btn btn-primary" data-toggle="modal" data-target="#RegistrarVehiculo">
@@ -34,15 +34,15 @@ date_default_timezone_set('America/Bogota');
                     </button>
                </div>
                <div class="card-footer text-muted">
-               <?php 
-               // Imprimir la fecha calendario actual ejemplo 14/03/2022
-               echo "Fecha actual: ". date("d/m/Y");
-               print "<br>";
-               // Imprime la hora actual del sistema. Se debe configurar de acuerdo al pais (Colombia) 
-               echo "Hora actual: " . date("h:i A");
+                    <?php
+                    // Imprimir la fecha calendario actual ejemplo 14/03/2022
+                    echo "Fecha actual: " . date("d/m/Y");
+                    print "<br>";
+                    // Imprime la hora actual del sistema. Se debe configurar de acuerdo al pais (Colombia) 
+                    echo "Hora actual: " . date("h:i A");
 
-               ?>
-          </div>
+                    ?>
+               </div>
           </div>
           <div class="box">
                <hr>
@@ -140,10 +140,38 @@ date_default_timezone_set('America/Bogota');
                                                   <a href="aqui_debe_ir_el_archivo_editar.php" class="btn btn-success">
                                                        <span class="glyphicon glyphicon-edit"></span>
                                                   </a>
-                                                  <!-- Aqui se debe realizar los ajustes respectivos para que funcione el borrar -->
-                                                  <a href="aqui_debe_ir_el_archivo_eliminar.php" class="btn btn-danger">
-                                                       <span class="glyphicon glyphicon-trash"></span>
-                                                  </a>
+                                             
+                                             
+                                             
+
+
+
+                                                  <!-- se captura el numero que identifica cada entrada para proceder a eliminarlo -->
+                                              <form action="delete.php" method="post">
+                                                       <input type="hidden" name="code" value="<?php echo $row['code'] ?>">
+                                                      
+
+                                                       <button type="submit" name="delete" class="btn btn-danger" onclick="return ConfirmDelete()" value="DELETE" class="btn btn-danger">
+                                                            <span class="glyphicon glyphicon-trash"></span>
+                                                       </button>
+                                                       
+                                                  </form>
+
+
+                                                  <script type="text/javascript">
+                                                       function ConfirmDelete() {
+                                                            var respuesta = confirm("El vehiculo se eliminara permanentemente");
+
+                                                            if (respuesta == true) {
+                                                                 return true;
+                                                            } else {
+                                                                 return false;
+                                                            }
+
+                                                       }
+                                                  </script>
+
+
 
                                              </td>
                                         </tr>
